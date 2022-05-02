@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/orklann/gesture/blob/9594064e192fa6678b687edde8abe2edacdd359e/artwork/Gesture.png" width=256 />
+  <img src="https://github.com/orklann/gesture/blob/cd3da53947b574a42e6d68e06c1ae210b4f94166/artwork/Gesture%20Banner.png" width=256 />
 </p>
 
 [![Run Tests](https://github.com/orklann/gesture/actions/workflows/main.yml/badge.svg)](https://github.com/orklann/gesture/actions/workflows/main.yml)  
