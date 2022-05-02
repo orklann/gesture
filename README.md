@@ -2,7 +2,7 @@
   <img src="https://github.com/orklann/gesture/blob/cd3da53947b574a42e6d68e06c1ae210b4f94166/artwork/Gesture%20Banner.png" width=256 />
 </p>
 
-[![Run Tests](https://github.com/orklann/gesture/actions/workflows/main.yml/badge.svg)](https://github.com/orklann/gesture/actions/workflows/main.yml)  
+[![PyPI version](https://badge.fury.io/py/gesture.svg)](https://badge.fury.io/py/gesture) [![Run Tests](https://github.com/orklann/gesture/actions/workflows/main.yml/badge.svg)](https://github.com/orklann/gesture/actions/workflows/main.yml)  
 
 Gesture
 =======
