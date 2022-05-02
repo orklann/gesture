@@ -1,0 +1,2 @@
+import os
+name = "Takeshi"
