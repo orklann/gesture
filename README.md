@@ -6,7 +6,7 @@
 
 Gesture
 =======
-**Gesture**, robust background processing for Python.
+**Gesture**, simple, robust background processing for Python.
 
 How to install
 --------------
