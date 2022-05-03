@@ -18,7 +18,7 @@ pip install gesture
 How to run unit tests
 ---------------------
 ```
-python -m unittest
+make test
 ```
 
 Author
