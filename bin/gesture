@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+
+import pathlib
+import sys
+import os
+
+# Make it work to import parent pacakage
+cwd = pathlib.Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(cwd))
+
+from gesture.cli import main
+
+if __name__ == '__main__':
+    sys.exit(main())
