@@ -1,0 +1,3 @@
+
+class DummyJob:
+    pass
