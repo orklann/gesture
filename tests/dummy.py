@@ -1,3 +1,4 @@
+from gesture.job import Job
 
-class DummyJob:
+class DummyJob(Job):
     pass
