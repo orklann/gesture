@@ -2,6 +2,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/macos,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,python
 
+# Redis
+dump.rdb
+
 ### macOS ###
 # General
 .DS_Store
