@@ -6,6 +6,9 @@ class Client:
     def __init__(self):
         self.redis = redis.Redis()
 
+    def push(self, payloads):
+        self._atomic_push(payloads)
+
     def _atomic_push(self, payloads):
         if "at" in payloads:
             time_stamp = payloads["at"]
