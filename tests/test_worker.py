@@ -3,7 +3,7 @@ from gesture.worker import Worker
 from .dummy import DummyJob
 
 class TestWorker(unittest.TestCase):
-    def test_start(self):
+    def test_run(self):
         job_str = '{"class": "DummyJob", "args": [1], "at": 12345}'
         worker = Worker()
         result = worker.run(job_str)
@@ -22,6 +22,7 @@ class TestWorker(unittest.TestCase):
         instance, args = worker.resolve_job(job_str)
         result = worker.execute_job(instance, args)
         self.assertEqual(result, 1)
+
         # Test DummyArgsJob
         job_str = '{"class": "DummyArgsJob", "args": [1, 2, 3], "at": 12345}'
         worker = Worker()
