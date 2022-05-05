@@ -22,7 +22,7 @@ setup(
     name='gesture',
     packages=find_packages(exclude=['tests', 'tests.*']),
     include_package_data=True,
-    install_requires=["redis", "click"],
+    install_requires=["redis>=4.2.2", "click>=8.0.3"],
     version=get_version(),
     url='https://github.com/orklann/gesture',
     description='Robust Background Processing',
