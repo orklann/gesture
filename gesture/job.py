@@ -15,7 +15,7 @@ class Job:
             if klass.__name__ == name:
                 cls.class_map[klass.__name__] = klass
                 return klass
-        raise NoClassError()
+        raise NoClassError("No class definition found for %s" % name)
 
     @classmethod
     def perform_async(cls, *args):
