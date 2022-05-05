@@ -8,5 +8,5 @@ class TestJob(unittest.TestCase):
 
     def test_class_by_name(self):
         klass = Job.class_by_name("DummyJob")
-        self.assertEqual(klass is DummyJob, True)
+        self.assertTrue(klass is DummyJob)
         self.assertRaises(NoClassError, Job.class_by_name, "SomeJob")
