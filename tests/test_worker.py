@@ -22,3 +22,9 @@ class TestWorker(unittest.TestCase):
         instance, args = worker.resolve_job(job_str)
         result = worker.execute_job(instance, args)
         self.assertEqual(result, 1)
+        # Test DummyArgsJob
+        job_str = '{"class": "DummyArgsJob", "args": [1, 2, 3], "at": 12345}'
+        worker = Worker()
+        instance, args = worker.resolve_job(job_str)
+        result = worker.execute_job(instance, args)
+        self.assertEqual(result, (1, 2, 3))
