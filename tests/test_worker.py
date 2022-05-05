@@ -10,11 +10,11 @@ class TestWorker(unittest.TestCase):
         self.assertEqual(result, 1)
     
     def test_resolve_job(self):
-        job_str = '{"class": "DummyJob", "args": [1, 2, 3], "at": 12345}'
+        job_str = '{"class": "DummyJob", "args": [1], "at": 12345}'
         worker = Worker()
         instance, args = worker.resolve_job(job_str)
         self.assertTrue(type(instance) is DummyJob)
-        self.assertEqual(args, [1, 2, 3])
+        self.assertEqual(args, [1])
 
     def test_execute_job(self):
         job_str = '{"class": "DummyJob", "args": [1], "at": 12345}'
@@ -24,7 +24,7 @@ class TestWorker(unittest.TestCase):
         self.assertEqual(result, 1)
 
         # Test DummyArgsJob
-        job_str = '{"class": "DummyArgsJob", "args": [1, 2, 3], "at": 12345}'
+        job_str = '{"class": "DummyArgsJob", "args": [1, 2, 3], "at": 22222}'
         worker = Worker()
         instance, args = worker.resolve_job(job_str)
         result = worker.execute_job(instance, args)

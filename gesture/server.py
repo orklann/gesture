@@ -9,7 +9,7 @@ class Server:
     def start(self):
         print("Gesture server starts...")
         job_str = self.fetch()
-        self.worker.run(job_str)
+        return self.worker.run(job_str)
         
     def fetch(self):
         jobs = self.redis.zrange("schedule", 0, 0)
