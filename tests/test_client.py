@@ -9,4 +9,7 @@ class TestClient(unittest.TestCase):
         payloads = {"class": "DummyJob", "args": [1, 2, 3], "at": time.time()}
         job = client._atomic_push(payloads)
         self.assertEqual(job, 1)
-
+        # Test pushing the same job, but with different time stamp
+        payloads = {"class": "DummyJob", "args": [1, 2, 3], "at": time.time()}
+        job = client._atomic_push(payloads)
+        self.assertEqual(job, 1)
