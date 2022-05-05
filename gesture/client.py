@@ -7,10 +7,9 @@ class Client:
         self.redis = redis.Redis()
 
     def push(self, payloads):
-        self._atomic_push(payloads)
+        return self._atomic_push(payloads)
 
     def _atomic_push(self, payloads):
         if "at" in payloads:
             time_stamp = payloads["at"]
-            del payloads["at"]
-            self.redis.zadd("schedule", {json.dumps(payloads): time_stamp})
+            return self.redis.zadd("schedule", {json.dumps(payloads): time_stamp})
