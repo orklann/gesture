@@ -11,7 +11,7 @@ Simple, robust background processing for Python.
 
 Note
 ----
-Gesture is not useful yet, it's in development. If you'd like to see how this library make progress, give it a star.
+Gesture is not useful yet, it's in development. If you'd like to see how this library makes progress, give it a star.
 
 How to install
 --------------
