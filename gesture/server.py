@@ -18,7 +18,7 @@ class Server:
 
     def zpopbyscrore(self):
         now = time.time()
-        jobs = self.redis.zrangebyscore("schedule", min="-inf", max=now)
+        jobs = self.redis.zrangebyscore("schedule", min="-inf", max=now, start=0, num=1)
         if jobs[0]:
             self.redis.zrem("schedule", jobs[0])
             return jobs[0]
