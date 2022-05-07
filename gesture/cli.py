@@ -13,7 +13,7 @@ def import_script(script):
     sys.path.append(os.path.dirname(full_path))
     base_name = os.path.basename(full_path)
     module_name = os.path.splitext(base_name)[0]
-    print("Imported ", full_path)
+    print("Imported", full_path)
     __import__(module_name)
 
 @click.command()
