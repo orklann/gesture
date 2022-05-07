@@ -1,3 +1,4 @@
+import time
 import redis
 from .worker import Worker
 
@@ -14,3 +15,11 @@ class Server:
     def fetch(self):
         jobs = self.redis.zrange("schedule", 0, 0)
         return jobs[0].decode("utf-8")
+
+    def zpopbyscrore(self):
+        now = time.time()
+        jobs = self.redis.zrangebyscore("schedule", min="-inf", max=now)
+        if jobs[0]:
+            self.redis.zrem("schedule", jobs[0])
+            return jobs[0]
+        return None
