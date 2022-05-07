@@ -7,6 +7,9 @@ import sys
 import click
 
 def import_script(script):
+    if not script:
+        print("Please specify a script file by using -s script. Just exiting...")
+        return
     full_path = os.path.abspath(script)
     if not os.path.exists(full_path):
         raise Exception("%s file not found, please check it and try again!" % full_path)
@@ -19,8 +22,7 @@ def import_script(script):
 @click.command()
 @click.option('-s', '--script', help='Location of python file to import')
 def main(script):
-    if script:
-        import_script(script)
+    import_script(script)
 
 if __name__ == '__main__':
     sys.exit(main())
