@@ -16,3 +16,5 @@ class Client:
             time_stamp = payloads["at"]
             del payloads["at"]
             return self.redis.zadd("schedule", {json.dumps(payloads): time_stamp})
+        else:
+            return self.redis.lpush("queue", json.dumps(payloads))
