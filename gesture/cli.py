@@ -8,7 +8,7 @@ import click
 
 def import_script(script):
     if not script:
-        print("Please specify a script file by using -s script. Exiting...")
+        print("Please specify a script file by using -s option. Exiting...")
         return
     full_path = os.path.abspath(script)
     if not os.path.exists(full_path):
