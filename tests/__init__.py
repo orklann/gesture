@@ -12,5 +12,7 @@ def stopTestRun(self):
     r = redis.Redis()
     clear_set(r, "schedule")
     clear_list(r, "queue")
+    print("")
+    print("Clean up redis.")
 
 setattr(unittest.TestResult, 'stopTestRun', stopTestRun)
