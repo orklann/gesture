@@ -4,6 +4,8 @@ from .dummy import DummyJob
 
 class TestUtils(unittest.TestCase):
     def test_validate(self):
+        job = {"class": "DummyJob", 'args': [1]}
+        validate(job)
         job = []
         self.assertRaises(ArgumentError, validate, job)
         job = {"args": [1], "at": 12345}
