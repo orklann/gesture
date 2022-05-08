@@ -5,6 +5,7 @@ Gesture command line tool
 import os
 import sys
 import click
+from .server import Server
 
 def import_script(script):
     if not script:
@@ -24,6 +25,8 @@ def import_script(script):
 @click.option('-s', '--script', help='Location of python file to import')
 def main(script):
     import_script(script)
+    server = Server()
+    server.start()
 
 if __name__ == '__main__':
     sys.exit(main())

@@ -8,18 +8,23 @@ class Server:
         self.worker = Worker()
 
     def start(self):
-        print("Gesture server starts...")
-        job_str = self.fetch()
-        return self.worker.run(job_str)
+        while True:
+            job_str = self.fetch()
+            if job_str is not None:
+                self.worker.run(job_str)
+            time.sleep(0.1)
         
     def fetch(self):
-        jobs = self.redis.zrange("schedule", 0, 0)
-        return jobs[0].decode("utf-8")
+        job = self.zpopbyscrore()
+        if job is not None:
+            return job.decode("utf-8")
+        else:
+            return None
 
     def zpopbyscrore(self):
         now = time.time()
         jobs = self.redis.zrangebyscore("schedule", min="-inf", max=now, start=0, num=1)
-        if jobs[0]:
+        if len(jobs) > 0:
             self.redis.zrem("schedule", jobs[0])
             return jobs[0]
         return None
