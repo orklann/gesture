@@ -8,7 +8,7 @@ class TestServer(unittest.TestCase):
     def test_fetch(self):
         server = Server()
         # clear all jobs before testing
-        clear_set(server.redis, "schedule")
+        clear_set(Server.redis, "schedule")
         DummyJob.perform_async(100)
         DummyJob.perform_async(200)
         job_str = server.fetch()
@@ -22,7 +22,7 @@ class TestServer(unittest.TestCase):
         server = Server()
 
         # clear all jobs before testing
-        clear_set(server.redis, "schedule")
+        clear_set(Server.redis, "schedule")
         DummyJob.perform_async(100)
         DummyJob.perform_async(200)
         job = server.zpopbyscrore()

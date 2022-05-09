@@ -3,8 +3,9 @@ import redis
 from .worker import Worker
 
 class Server:
+    redis = redis.Redis()
+
     def __init__(self):
-        self.redis = redis.Redis()
         self.worker = Worker()
 
     def start(self):
@@ -23,8 +24,8 @@ class Server:
 
     def zpopbyscrore(self):
         now = time.time()
-        jobs = self.redis.zrangebyscore("schedule", min="-inf", max=now, start=0, num=1)
+        jobs = Server.redis.zrangebyscore("schedule", min="-inf", max=now, start=0, num=1)
         if len(jobs) > 0:
-            self.redis.zrem("schedule", jobs[0])
+            Server.redis.zrem("schedule", jobs[0])
             return jobs[0]
         return None
